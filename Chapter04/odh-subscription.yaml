@@ -1,0 +1,15 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: opendatahub-operator
+  namespace: operators
+spec:
+  #channel: fast
+  channel: stable
+  #installPlanApproval: Automatic
+  installPlanApproval: Manual
+  name: opendatahub-operator
+  source: community-operators-redhat
+  sourceNamespace: olm
+  #startingCSV: opendatahub-operator.v2.0.0
+  startingCSV: opendatahub-operator.v1.1.1
