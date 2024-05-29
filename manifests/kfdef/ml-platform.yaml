@@ -123,7 +123,7 @@ spec:
       #uri: https://github.com/kubeflow/manifests/archive/v1.2-branch.tar.gz
       uri: https://github.com/kubeflow/manifests/archive/v1.8-branch.tar.gz
     - name: manifests
-      uri: https://github.com/HodMad/MlonK3s/PacktPublishing-Machine-Learning-on-Kubernetes-65d6467.tar.gz
+      uri: https://github.com/HodMad/MlonK3s/tarball/main
       #uri: https://github.com/PacktPublishing/Machine-Learning-on-Kubernetes/tarball/main
   version: master
 
