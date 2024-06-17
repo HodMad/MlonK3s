@@ -3,9 +3,9 @@ kind: PersistentVolumeClaim
 metadata:
   annotations:
     volume.beta.kubernetes.io/storage-class: null
-    # Hier node eingefügt damit jupyter-db als Pod starten kann
-    volume.kubernetes.io/selected-node: labpc
-    local.path.provisioner/selected-node: labpc
+    # Hier node eingefügt damit jupyter-db als Pod starten kann muss immer wieder angepasst werden
+    volume.kubernetes.io/selected-node: tk-ki-server-01
+    local.path.provisioner/selected-node: tk-ki-server-01
     pv.kubernetes.io/provisioned-by: rancher.io/local-path
   name: jupyterhub-db
 spec:
