@@ -27,7 +27,8 @@ spec:
             port:
               number: 8080
         path: /
-        pathType: ImplementationSpecific  
+        pathType: ImplementationSpecific
+  ingressClassName: nginx
 # ---
 # kind: Route
 # apiVersion: route.openshift.io/v1
