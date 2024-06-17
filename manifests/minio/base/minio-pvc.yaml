@@ -3,6 +3,8 @@ kind: PersistentVolumeClaim
 metadata:
 #  namespace: ml-workshop
   name: minio-ml-workshop
+  annotations:
+    volume.kubernetes.io/selected-node: tk-ki-server-01
 spec:
   accessModes:
     - ReadWriteOnce
