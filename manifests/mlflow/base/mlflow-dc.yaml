@@ -47,7 +47,7 @@ spec:
           imagePullPolicy: IfNotPresent
 
         - name: mlflow-deployment
-          image: quay.io/ml-aml-workshop/mlflow:2.14.1
+          image: quay.io/ml-aml-workshop/mlflow:0.0.2
           imagePullPolicy: Always
           args:
             - mlflow

@@ -19,7 +19,8 @@ spec:
           - 0
       containers:
         - name: grafana
-          image: grafana/grafana-oss:8.3.3-ubuntu
+          #image: grafana/grafana-oss:8.3.3-ubuntu
+          image: grafana/grafana-oss:11.1.0-ubuntu
           imagePullPolicy: IfNotPresent
           env:
             - name: GF_AUTH_GENERIC_OAUTH_NAME

@@ -6,9 +6,9 @@ metadata:
 spec:
   tls:
     - hosts:
-      - keycloak.192.168.1.194.nip.io
+      - keycloak.10.125.0.173.nip.io
   rules:
-  - host: keycloak.192.168.1.194.nip.io
+  - host: keycloak.10.125.0.173.nip.io
     http:
       paths:
       - backend:
