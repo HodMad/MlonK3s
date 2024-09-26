@@ -1,13 +1,12 @@
+
 apiVersion: kfdef.apps.kubeflow.org/v1
 kind: KfDef
 metadata:
   name: opendatahub-ml-workshop
-  #namespace: ml-workshop
+#  namespace: opendatahub
 spec:
   applications:
     - kustomizeConfig:
-        overlays:
-          - kubernetes
         parameters:
           - name: namespace
             value: ml-workshop
@@ -19,17 +18,15 @@ spec:
         overlays:
           - mlops
           - spark3
-          - kubernetes
-
         parameters:
           - name: s3_endpoint_url
             value: "minio-ml-workshop.ml-workshop:9000"
           - name: KEYCLOAK_URL  
-            value: keycloak.10.125.0.173.nip.io
+            value: keycloak-keycloak.apps.cluster-26hnv.26hnv.sandbox1766.opentlc.com
           - name: CLIENT_SECRET
             value: '30fc8258-459b-47d8-b81e-16aabe31ce4f'  
           - name: JUPYTERHUB_HOST  
-            value: jupyterhub.10.125.0.173.nip.io
+            value:  jupyterhub-ml-workshop.apps.cluster-26hnv.26hnv.sandbox1766.opentlc.com 
 
         repoRef:
           name: manifests
@@ -43,13 +40,12 @@ spec:
     - kustomizeConfig:
         parameters:
           - name: KEYCLOAK_URL  
-            value: keycloak.10.125.0.173.nip.io
+            value: keycloak-keycloak.apps.cluster-26hnv.26hnv.sandbox1766.opentlc.com
           - name: CLIENT_SECRET
             value: 'efbb6591-86d0-4270-a544-f47689460a85'
           - name: AIRFLOW_HOST  
-            value: airflow.10.125.0.173.nip.io
-          - name: DAG_REPO
-            value: 'https://github.com/airflow-dags/dags/'
+            value: airflow-ml-workshop.apps.cluster-26hnv.26hnv.sandbox1766.opentlc.com 
+
 
         repoRef:
           name: manifests
@@ -61,7 +57,7 @@ spec:
           - name: s3_endpoint_url
             value: "minio-ml-workshop.ml-workshop:9000"
           - name: MINIO_HOST  
-            value: minio.10.125.0.173.nip.io
+            value: minio-ml-workshop.apps.cluster-26hnv.26hnv.sandbox1766.opentlc.com
 
         repoRef:
           name: manifests
@@ -70,9 +66,9 @@ spec:
     - kustomizeConfig:
         parameters:
           - name: MLFLOW_HOST  
-            value: mlflow.10.125.0.173.nip.io
+            value: mlflow-ml-workshop.apps.cluster-26hnv.26hnv.sandbox1766.opentlc.com
           - name: KEYCLOAK_URL  
-            value: keycloak.10.125.0.173.nip.io
+            value: keycloak-keycloak.apps.cluster-26hnv.26hnv.sandbox1766.opentlc.com
 
         repoRef:
           name: manifests
@@ -84,10 +80,6 @@ spec:
           path: manifests/odhseldon/cluster
       name: odhseldon
     - kustomizeConfig:
-        parameters:
-          - name: INGRESS_HOST 
-            value: .10.125.0.173.nip.io
-
         repoRef:
           name: manifests
           path: manifests/radanalyticsio/spark/cluster
@@ -95,9 +87,9 @@ spec:
     - kustomizeConfig:
         parameters:
           - name: GRAFANA_HOST  
-            value: grafana.10.125.0.173.nip.io
+            value: grafana-ml-workshop.apps.cluster-26hnv.26hnv.sandbox1766.opentlc.com
           - name: KEYCLOAK_URL  
-            value: keycloak.10.125.0.173.nip.io
+            value: keycloak-keycloak.apps.cluster-26hnv.26hnv.sandbox1766.opentlc.com
           - name: CLIENT_SECRET
             value: 'efbb6591-86d0-4270-a544-f47689460a85'
 
@@ -113,18 +105,11 @@ spec:
           name: manifests
           path: manifests/prometheus
       name: prometheus
-    - kustomizeConfig:
-        repoRef:
-          name: manifests
-          path: manifests/flights-data
-      name: flights-data
+
   repos:
     - name: kf-manifests
-      #uri: https://github.com/kubeflow/manifests/archive/v1.2-branch.tar.gz
-      #uri: https://github.com/kubeflow/manifests/archive/v1.8-branch.tar.gz
-      uri: https://github.com/kubeflow/manifests/archive/refs/tags/v1.8.1.tar.gz
+      uri: https://github.com/kubeflow/manifests/archive/v1.2-branch.tar.gz
     - name: manifests
-      uri: https://github.com/HodMad/MlonK3s/tarball/main
-      #uri: https://github.com/PacktPublishing/Machine-Learning-on-Kubernetes/tarball/main
+      uri: https://github.com/PacktPublishing/Machine-Learning-on-Kubernetes/tarball/main
   version: master
 

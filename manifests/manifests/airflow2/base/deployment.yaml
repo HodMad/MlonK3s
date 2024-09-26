@@ -7,7 +7,7 @@ metadata:
   name: app-aflow-airflow-scheduler
   labels:
     app.kubernetes.io/name: airflow
-    helm.sh/chart: airflow-14.0.2
+    helm.sh/chart: airflow-10.3.2
     app.kubernetes.io/instance: app-aflow
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: scheduler
@@ -22,7 +22,7 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: airflow
-        helm.sh/chart: airflow-14.0.2
+        helm.sh/chart: airflow-10.3.2
         app.kubernetes.io/instance: app-aflow
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/component: scheduler
@@ -87,8 +87,7 @@ spec:
           terminationMessagePolicy: File
           image: 'k8s.gcr.io/git-sync/git-sync:v3.2.2'
         - name: airflow-scheduler
-          #image: quay.io/ml-on-k8s/airflow:2.0.0.scheduler
-          image: quay.io/ml-on-k8s/airflow:2.2.3.scheduler
+          image: quay.io/ml-on-k8s/airflow:2.0.0.scheduler
           imagePullPolicy: "Always"
           # securityContext:
           #   runAsUser: 1001
@@ -158,7 +157,7 @@ metadata:
   name: app-aflow-airflow-web
   labels:
     app.kubernetes.io/name: airflow
-    helm.sh/chart: airflow-14.0.2
+    helm.sh/chart: airflow-10.3.2
     app.kubernetes.io/instance: app-aflow
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: web
@@ -173,7 +172,7 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: airflow
-        helm.sh/chart: airflow-14.0.2
+        helm.sh/chart: airflow-10.3.2
         app.kubernetes.io/instance: app-aflow
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/component: web
@@ -237,8 +236,7 @@ spec:
           terminationMessagePolicy: File
           image: 'k8s.gcr.io/git-sync/git-sync:v3.2.2'
         - name: airflow-web
-          #image: quay.io/ml-on-k8s/airflow:2.1.7.web.keycloak
-          image: quay.io/ml-on-k8s/airflow:2.2.3.web.keycloak
+          image: quay.io/ml-on-k8s/airflow:2.1.7.web.keycloak
           imagePullPolicy: "Always"
 #          securityContext:
 #            runAsUser: 1001
@@ -598,7 +596,7 @@ metadata:
   name: app-aflow-airflow-worker
   labels:
     app.kubernetes.io/name: airflow
-    helm.sh/chart: airflow-14.0.2
+    helm.sh/chart: airflow-10.3.2
     app.kubernetes.io/instance: app-aflow
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: worker
@@ -618,7 +616,7 @@ spec:
         checksum/configmap: 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
       labels:
         app.kubernetes.io/name: airflow
-        helm.sh/chart: airflow-14.0.2
+        helm.sh/chart: airflow-10.3.2
         app.kubernetes.io/instance: app-aflow
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/component: worker
@@ -679,8 +677,7 @@ spec:
           terminationMessagePolicy: File
           image: 'k8s.gcr.io/git-sync/git-sync:v3.2.2'
         - name: airflow-worker
-          #image: quay.io/ml-on-k8s/airflow:2.0.0.worker
-          image: quay.io/ml-on-k8s/airflow:2.2.3.worker
+          image: quay.io/ml-on-k8s/airflow:2.0.0.worker
           imagePullPolicy: "Always"
           # securityContext:
           #   runAsUser: 1001
